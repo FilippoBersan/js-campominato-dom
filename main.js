@@ -21,13 +21,6 @@ function myCreateElement(tag, ClassName, content) {
   return element;
 }
 
-// function changeColor(tag, ClassName, content) {
-//   const element = document.createElement(tag);
-//   element.classList.add(ClassName);
-//   element.append(content);
-//   return element;
-// }
-
 // creo variabile  boards
 const board = document.querySelector('.board');
 console.log(board);
@@ -48,4 +41,11 @@ inputButton.addEventListener('click', function () {
   if (inputButton !== null) {
     board.classList.add('active');
   }
+});
+
+const cella = document.querySelectorAll('div.cell');
+console.log(cella);
+
+cella.addEventListener('click', function () {
+  cella.classList.add('.onclick');
 });
