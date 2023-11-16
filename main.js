@@ -21,6 +21,13 @@ function myCreateElement(tag, ClassName, content) {
   return element;
 }
 
+function myBombe(tag, ClassName, content) {
+  const element = document.createElement(tag);
+  element.classList.add(ClassName);
+  element.append(content);
+  return element;
+}
+
 // creo variabile  boards
 const board = document.querySelector('.board');
 console.log(board);
@@ -29,6 +36,18 @@ console.log(board);
 for (let i = 1; i < 101; i++) {
   const myElement = myCreateElement('div', 'cell', i);
   board.append(myElement);
+
+  myElement.addEventListener('click', function () {
+    myElement.classList.add('onclick');
+    console.log('haicliccato su:', myElement);
+  });
+}
+
+for (let i = 1; i < 17; i++) {
+  let bombe = myBombe('div', 'cell', i);
+  bombe = Math.floor(Math.random(0) * 16);
+
+  console.log(bombe);
 }
 
 // seleziono variabile bottone
@@ -41,11 +60,4 @@ inputButton.addEventListener('click', function () {
   if (inputButton !== null) {
     board.classList.add('active');
   }
-});
-
-const cella = document.querySelectorAll('div.cell');
-console.log(cella);
-
-cella.addEventListener('click', function () {
-  cella.classList.add('.onclick');
 });
